@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-[#0a0a0a] text-[#ededed] p-8 flex justify-between items-center fixed top-0 w-full z-50">
+    <div className="bg-black text-[#ededed] p-8 flex justify-between items-center ">
       <div>
         <h1 className="text-3xl font-bold text-center">ZONIXX</h1>
       </div>
