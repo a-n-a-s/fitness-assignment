@@ -128,3 +128,27 @@
     @apply font-sans;
   }
 }
+
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  /* background: #9AE600; */
+  border-radius: 10px;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #9AE600;
+  border-radius: 10px;
+}
+
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9AE600;
+}
