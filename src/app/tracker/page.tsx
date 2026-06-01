@@ -99,16 +99,16 @@ const page = () => {
     <div className="w-11/12 mx-auto my-10 ">
       <div className=" flex  rounded-2xl p-6 gap-4">
         <div className="w-1/2  p-4  flex flex-col items-center justify-center gap-4">
-          <h2 className="text-3xl text-white font-bold">
+          <h2 className="text-xl md:text-3xl text-white ">
             H <sub>2</sub> O
           </h2>
-          <Droplet className="text-lime-400" size={220} fill="currentColor" />
-          <p className="text-white text-2xl  text-center">98.5%</p>
+          <Droplet className="text-lime-400" size={160} fill="currentColor" />
+          <p className="text-white md:text-3xl  text-center">98.5%</p>
         </div>
         <div className="w-1/2 p-4  flex flex-col items-center justify-center gap-4">
-          <h2 className="text-2xl text-white font-bold">Calories Burned</h2>
-          <FlameIcon className="text-lime-400" fill="currentColor" size={220} />
-          <p className="text-white text-2xl  text-center">1200</p>
+          <h2 className="text-xl md:text-3xl text-white ">Calories </h2>
+          <FlameIcon className="text-lime-400" fill="currentColor" size={160} />
+          <p className="text-white md:text-3xl  text-center">1200</p>
         </div>
       </div>
       <div className="bg-lime-400 rounded-xl p-8 my-10">
