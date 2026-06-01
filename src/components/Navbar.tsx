@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { MenuIcon } from "lucide-react";
+import Link from "next/link";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,19 +14,19 @@ const Navbar = () => {
       <div>
         <ul className="flex items-center gap-12 hidden md:flex">
           <li className="hover:text-lime-400">
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li className="hover:text-lime-400">
-            <a href="/about">About</a>
+            <Link href="/about">About</Link>
           </li>
           <li className="hover:text-lime-400">
-            <a href="/workouts">Workouts</a>
+            <Link href="/workouts">Workouts</Link>
           </li>
           <li className="hover:text-lime-400">
-            <a href="/tracker">Tracker</a>
+            <Link href="/tracker">Tracker</Link>
           </li>
           <li className="hover:text-lime-400">
-            <a href="/contact">Contact</a>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
         <MenuIcon

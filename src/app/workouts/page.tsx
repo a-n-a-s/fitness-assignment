@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WorkoutCard from "@/components/WorkoutCard";
+import { useRouter } from "next/navigation";
 
 interface WorkoutCardProps {
   name: string;
@@ -14,10 +15,13 @@ interface WorkoutCardProps {
   equipment: string;
   bodyPart: string;
   id: string;
+  onClick?: () => void;
 }
 
 const page = () => {
   const [workouts, setWorkouts] = useState<WorkoutCardProps[]>([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     axios
@@ -51,7 +55,7 @@ const page = () => {
       </h2>
       <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2">
         {workouts.map((workout) => (
-          <WorkoutCard {...workout} key={workout.id} />
+          <WorkoutCard {...workout} key={workout.id}  />
         ))}
       </div>
     </div>

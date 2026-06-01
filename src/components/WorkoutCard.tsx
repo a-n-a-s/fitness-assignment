@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface WorkoutCardProps {
@@ -11,6 +12,7 @@ interface WorkoutCardProps {
   equipment: string;
   bodyPart: string;
   id: string;
+  onClick?: () => void;
 }
 
 const WorkoutCard = ({
@@ -24,9 +26,10 @@ const WorkoutCard = ({
   equipment,
   bodyPart,
   id,
+  onClick,
 }: WorkoutCardProps) => {
   return (
-    <div className="bg-lime-400 w-11/12 md:w-5/6 mx-auto my-10 rounded-2xl shadow-xl overflow-hidden border border-lime-500 hover:scale-105 transition-transform duration-300">
+    <div className="bg-lime-400 w-11/12 md:w-5/6 mx-auto my-10 rounded-2xl shadow-xl overflow-hidden border border-lime-500 hover:scale-105 transition-transform duration-300 ">
       <div className="bg-lime-500 px-6 py-5">
         <h2 className="text-2xl md:text-xl font-bold capitalize">{name}</h2>
         <p className="text-sm md:text-base opacity-80 capitalize">{target}</p>
@@ -58,6 +61,11 @@ const WorkoutCard = ({
         <div className="border-t border-lime-500 pt-4">
           <h3 className="font-bold text-lg mb-2">Description</h3>
           <p className="text-md md:text-sm">{description}</p>
+          <button className="bg-black text-white px-4 py-2 rounded-md my-2 cursor-pointer">
+            <Link href={`/workouts/${id}`} as={`/workouts/${id}`}>
+              View Details
+            </Link>
+          </button>
         </div>
       </div>
     </div>
