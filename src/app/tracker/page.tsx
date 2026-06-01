@@ -199,7 +199,7 @@ const page = () => {
               setNewExercise((prev) => ({ ...prev, name: e.target.value }))
             }
             placeholder="Exercise name"
-            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder:text-white outline-none focus-visible:ring-lime-600"
           />
           <Input
             value={newExercise.reps}
@@ -207,7 +207,7 @@ const page = () => {
               setNewExercise((prev) => ({ ...prev, reps: e.target.value }))
             }
             placeholder="Reps"
-            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder:text-white outline-none focus-visible:ring-lime-600"
           />
           <Input
             value={newExercise.muscleTrained}
@@ -218,7 +218,7 @@ const page = () => {
               }))
             }
             placeholder="Muscle trained"
-            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder:text-white outline-none focus-visible:ring-lime-600"
           />
           <Input
             value={newExercise.restTime}
@@ -226,7 +226,7 @@ const page = () => {
               setNewExercise((prev) => ({ ...prev, restTime: e.target.value }))
             }
             placeholder="Rest time"
-            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder:text-white outline-none focus-visible:ring-lime-600"
           />
           <Button
             variant="ghost"

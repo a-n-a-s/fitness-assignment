@@ -65,7 +65,7 @@ const WorkoutCard = ({
           <p className="text-md md:text-sm">{description}</p>
         </div>
       </CardContent>
-      <CardFooter className="px-6 pb-6 pt-0">
+      <CardFooter className="px-6 pb-6 pt-0 bg-lime-400 border-none">
         <Button asChild className="bg-black text-white hover:bg-zinc-800 px-4 py-2 rounded-md cursor-pointer">
           <Link href={`/workouts/${id}`} as={`/workouts/${id}`}>
             View Details
