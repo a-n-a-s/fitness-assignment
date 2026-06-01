@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,29 +31,36 @@ const Navbar = () => {
             <Link href="/contact">Contact</Link>
           </li>
         </ul>
-        <MenuIcon
-          className="text-2xl cursor-pointer md:hidden mx-auto my-2"
-          onClick={() => setIsOpen(!isOpen)}
-        />
-        {isOpen && (
-          <ul className="flex flex-col items-center gap-4">
-            <li className="hover:text-lime-400">
-              <a href="/">Home</a>
-            </li>
-            <li className="hover:text-lime-400">
-              <a href="/about">About</a>
-            </li>
-            <li className="hover:text-lime-400">
-              <a href="/workouts">Workouts</a>
-            </li>
-            <li className="hover:text-lime-400">
-              <a href="/tracker">Tracker</a>
-            </li>
-            <li className="hover:text-lime-400">
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-        )}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <MenuIcon
+              className="text-2xl cursor-pointer md:hidden mx-auto my-2"
+            />
+          </SheetTrigger>
+          <SheetContent side="right" className="bg-black text-[#ededed] border-l-lime-400">
+            <VisuallyHidden>
+              <SheetTitle>Navigation Menu</SheetTitle>
+              <SheetDescription>Access different sections of the app</SheetDescription>
+            </VisuallyHidden>
+            <ul className="flex flex-col items-center gap-8 mt-10 text-xl">
+              <li className="hover:text-lime-400" onClick={() => setIsOpen(false)}>
+                <Link href="/">Home</Link>
+              </li>
+              <li className="hover:text-lime-400" onClick={() => setIsOpen(false)}>
+                <Link href="/about">About</Link>
+              </li>
+              <li className="hover:text-lime-400" onClick={() => setIsOpen(false)}>
+                <Link href="/workouts">Workouts</Link>
+              </li>
+              <li className="hover:text-lime-400" onClick={() => setIsOpen(false)}>
+                <Link href="/tracker">Tracker</Link>
+              </li>
+              <li className="hover:text-lime-400" onClick={() => setIsOpen(false)}>
+                <Link href="/contact">Contact</Link>
+              </li>
+            </ul>
+          </SheetContent>
+        </Sheet>
       </div>
     </div>
   );

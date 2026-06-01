@@ -14,7 +14,7 @@ const Hero = () => {
         <p>AND OUT.</p>
       </div>
       <div>
-        <button className="text-lg bg-lime-400 text-black px-6 py-4 rounded-md  cursor-pointer">Join Today</button>
+        <Button className="text-lg bg-lime-400 text-black px-6 py-4 rounded-md hover:bg-lime-500 cursor-pointer h-auto font-normal">Join Today</Button>
       </div>
 
     </div>

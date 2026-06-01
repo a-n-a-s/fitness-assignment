@@ -2,6 +2,10 @@
 
 import { Droplet, FlameIcon } from "lucide-react";
 import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 type Exercise = {
   id: number;
@@ -97,59 +101,63 @@ const page = () => {
 
   return (
     <div className="w-11/12 mx-auto my-10 ">
-      <div className=" flex  rounded-2xl p-6 gap-4">
-        <div className="w-1/2  p-4  flex flex-col items-center justify-center gap-4">
-          <h2 className="text-xl md:text-3xl text-white ">
-            H <sub>2</sub> O
-          </h2>
-          <Droplet className="text-lime-400" size={160} fill="currentColor" />
-          <p className="text-white md:text-3xl  text-center">98.5%</p>
-        </div>
-        <div className="w-1/2 p-4  flex flex-col items-center justify-center gap-4">
-          <h2 className="text-xl md:text-3xl text-white ">Calories </h2>
-          <FlameIcon className="text-lime-400" fill="currentColor" size={160} />
-          <p className="text-white md:text-3xl  text-center">1200</p>
-        </div>
+      <div className="flex rounded-2xl p-6 gap-4">
+        <Card className="w-1/2 bg-transparent border-0 shadow-none p-0 flex flex-col items-center justify-center gap-4">
+          <CardContent className="p-4 flex flex-col items-center justify-center gap-4">
+            <h2 className="text-xl md:text-3xl text-white">
+              H <sub>2</sub> O
+            </h2>
+            <Droplet className="text-lime-400" size={160} fill="currentColor" />
+            <p className="text-white md:text-3xl text-center">98.5%</p>
+          </CardContent>
+        </Card>
+        <Card className="w-1/2 bg-transparent border-0 shadow-none p-0 flex flex-col items-center justify-center gap-4">
+          <CardContent className="p-4 flex flex-col items-center justify-center gap-4">
+            <h2 className="text-xl md:text-3xl text-white">Calories</h2>
+            <FlameIcon className="text-lime-400" fill="currentColor" size={160} />
+            <p className="text-white md:text-3xl text-center">1200</p>
+          </CardContent>
+        </Card>
       </div>
       <div className="bg-lime-400 rounded-xl p-8 my-10">
         <h2 className="text-4xl text-white font-bold">Workouts</h2>
         <div className="mt-6 overflow-x-auto rounded-lg">
-          <table className="w-full text-left text-white">
-            <thead>
-              <tr className="bg-white/20">
-                <th className="px-4 py-3 font-semibold">Name</th>
-                <th className="px-4 py-3 font-semibold">Reps</th>
-                <th className="px-4 py-3 font-semibold">Muscle Trained</th>
-                <th className="px-4 py-3 font-semibold">Rest Time</th>
-                <th className="px-4 py-3 font-semibold">Action</th>
-              </tr>
-            </thead>
-            <tbody>
+          <Table className="w-full text-left text-white border-0">
+            <TableHeader>
+              <TableRow className="bg-white/20 border-white/30 hover:bg-white/20">
+                <TableHead className="px-4 py-3 font-semibold text-white">Name</TableHead>
+                <TableHead className="px-4 py-3 font-semibold text-white">Reps</TableHead>
+                <TableHead className="px-4 py-3 font-semibold text-white">Muscle Trained</TableHead>
+                <TableHead className="px-4 py-3 font-semibold text-white">Rest Time</TableHead>
+                <TableHead className="px-4 py-3 font-semibold text-white">Action</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {exercises.map((exercise, index) => (
-                <tr
+                <TableRow
                   key={exercise.id}
-                  className={`border-t border-white/30 ${index % 2 === 1 ? "bg-white/10" : ""}`}
+                  className={`border-t border-white/30 hover:bg-white/10 ${index % 2 === 1 ? "bg-white/10 hover:bg-white/20" : ""}`}
                 >
-                  <td className="px-4 py-3">
-                    <input
+                  <TableCell className="px-4 py-3 border-0">
+                    <Input
                       value={exercise.name}
                       onChange={(e) =>
                         updateExercise(exercise.id, "name", e.target.value)
                       }
-                      className="w-full bg-transparent border border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none"
+                      className="w-full bg-transparent border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none focus-visible:ring-lime-600 h-9"
                     />
-                  </td>
-                  <td className="px-4 py-3">
-                    <input
+                  </TableCell>
+                  <TableCell className="px-4 py-3 border-0">
+                    <Input
                       value={exercise.reps}
                       onChange={(e) =>
                         updateExercise(exercise.id, "reps", e.target.value)
                       }
-                      className="w-full bg-transparent border border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none"
+                      className="w-full bg-transparent border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none focus-visible:ring-lime-600 h-9"
                     />
-                  </td>
-                  <td className="px-4 py-3">
-                    <input
+                  </TableCell>
+                  <TableCell className="px-4 py-3 border-0">
+                    <Input
                       value={exercise.muscleTrained}
                       onChange={(e) =>
                         updateExercise(
@@ -158,49 +166,50 @@ const page = () => {
                           e.target.value
                         )
                       }
-                      className="w-full bg-transparent border border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none"
+                      className="w-full bg-transparent border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none focus-visible:ring-lime-600 h-9"
                     />
-                  </td>
-                  <td className="px-4 py-3">
-                    <input
+                  </TableCell>
+                  <TableCell className="px-4 py-3 border-0">
+                    <Input
                       value={exercise.restTime}
                       onChange={(e) =>
                         updateExercise(exercise.id, "restTime", e.target.value)
                       }
-                      className="w-full bg-transparent border border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none"
+                      className="w-full bg-transparent border-white/30 rounded-md px-2 py-1 text-white placeholder-white/60 outline-none focus-visible:ring-lime-600 h-9"
                     />
-                  </td>
-                  <td className="px-4 py-3">
-                    <button
+                  </TableCell>
+                  <TableCell className="px-4 py-3 border-0">
+                    <Button
+                      variant="ghost"
                       onClick={() => removeExercise(exercise.id)}
-                      className="rounded-md bg-white/20 px-3 py-1 text-white hover:bg-white/30"
+                      className="rounded-md bg-white/20 px-3 py-1 text-white hover:bg-white/30 hover:text-white h-9"
                     >
                       Remove
-                    </button>
-                  </td>
-                </tr>
+                    </Button>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
         <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-5">
-          <input
+          <Input
             value={newExercise.name}
             onChange={(e) =>
               setNewExercise((prev) => ({ ...prev, name: e.target.value }))
             }
             placeholder="Exercise name"
-            className="bg-white/10 border border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
           />
-          <input
+          <Input
             value={newExercise.reps}
             onChange={(e) =>
               setNewExercise((prev) => ({ ...prev, reps: e.target.value }))
             }
             placeholder="Reps"
-            className="bg-white/10 border border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
           />
-          <input
+          <Input
             value={newExercise.muscleTrained}
             onChange={(e) =>
               setNewExercise((prev) => ({
@@ -209,22 +218,23 @@ const page = () => {
               }))
             }
             placeholder="Muscle trained"
-            className="bg-white/10 border border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
           />
-          <input
+          <Input
             value={newExercise.restTime}
             onChange={(e) =>
               setNewExercise((prev) => ({ ...prev, restTime: e.target.value }))
             }
             placeholder="Rest time"
-            className="bg-white/10 border border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none"
+            className="bg-white/10 border-white/30 rounded-md px-3 py-2 text-white placeholder-white/70 outline-none focus-visible:ring-lime-600"
           />
-          <button
+          <Button
+            variant="ghost"
             onClick={addExercise}
-            className="rounded-md bg-white/20 px-4 py-2 font-semibold text-white hover:bg-white/30"
+            className="rounded-md bg-white/20 px-4 py-2 font-semibold text-white hover:bg-white/30 hover:text-white"
           >
             Add Exercise
-          </button>
+          </Button>
         </div>
       </div>
     </div>

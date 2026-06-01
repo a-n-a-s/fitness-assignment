@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface WorkoutCardProps {
   name: string;
@@ -29,13 +31,13 @@ const WorkoutCard = ({
   onClick,
 }: WorkoutCardProps) => {
   return (
-    <div className="bg-lime-400 w-11/12 md:w-5/6 mx-auto my-10 rounded-2xl shadow-xl overflow-hidden border border-lime-500 hover:scale-105 transition-transform duration-300 ">
-      <div className="bg-lime-500 px-6 py-5">
-        <h2 className="text-2xl md:text-xl font-bold capitalize">{name}</h2>
-        <p className="text-sm md:text-base opacity-80 capitalize">{target}</p>
-      </div>
+    <Card className="bg-lime-400 w-11/12 md:w-5/6 mx-auto my-10 rounded-2xl shadow-xl overflow-hidden border border-lime-500 hover:scale-105 transition-transform duration-300 ">
+      <CardHeader className="bg-lime-500 px-6 py-5">
+        <CardTitle className="text-2xl md:text-xl font-bold capitalize">{name}</CardTitle>
+        <CardDescription className="text-sm md:text-base opacity-80 capitalize text-black">{target}</CardDescription>
+      </CardHeader>
 
-      <div className="p-6 space-y-5 text-md md:text-md">
+      <CardContent className="p-6 space-y-5 text-md md:text-md">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-lime-300 rounded-xl p-4">
             <span className="font-semibold">Difficulty:</span>
@@ -61,14 +63,16 @@ const WorkoutCard = ({
         <div className="border-t border-lime-500 pt-4">
           <h3 className="font-bold text-lg mb-2">Description</h3>
           <p className="text-md md:text-sm">{description}</p>
-          <button className="bg-black text-white px-4 py-2 rounded-md my-2 cursor-pointer">
-            <Link href={`/workouts/${id}`} as={`/workouts/${id}`}>
-              View Details
-            </Link>
-          </button>
         </div>
-      </div>
-    </div>
+      </CardContent>
+      <CardFooter className="px-6 pb-6 pt-0">
+        <Button asChild className="bg-black text-white hover:bg-zinc-800 px-4 py-2 rounded-md cursor-pointer">
+          <Link href={`/workouts/${id}`} as={`/workouts/${id}`}>
+            View Details
+          </Link>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
 
